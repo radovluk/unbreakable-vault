@@ -1,7 +1,7 @@
 // SPDX-License-Identifier: MIT
 pragma solidity =0.8.28;
 
-contract Victim {
+contract Bank {
     mapping(address => uint) private balances;
 
     function withdraw() public {
@@ -17,11 +17,11 @@ contract Victim {
 }
 
 contract Attacker {
-    Victim victim;
+    Bank victim;
     uint256 private initialDeposit;
 
     constructor(address _vulnerable) {
-        victim = Victim(_vulnerable);
+        victim = Bank(_vulnerable);
     }
 
     function attack() public payable {
